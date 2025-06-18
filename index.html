@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Simples</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+    <h1>Agenda Simples</h1>
+
+    <div id="cadastro">
+        <h2>Nova Tarefa</h2>
+        <form id="nova-tarefa">
+            <div>
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required>
+            </div>
+            <div>
+                <label for="titulo">Descrição:</label>
+                <input type="text" id="descricao" name="descricao" required>
+            </div>
+            <div>
+                <label for="titulo">Data de inicio:</label>
+                <input type="date" id="data_inicio" name="data_inicio" required>
+            </div>
+            <div>
+                <label for="titulo">Data de entrega:</label>
+                <input type="date" id="data_termino" name="data_termino" required>
+            </div>
+
+
+            <div>
+                <label for="status">Status:</label>
+                <select id="status" name="status">
+                    <option value="aguardando">Aguardando</option>
+                    <option value="em execução">Em Execução</option>
+                    <option value="concluído">Concluído</option>
+                </select>
+            </div>
+            <button type="submit">Adicionar</button>
+            <div id="msg"></div>
+        </form>
+    </div>
+
+    <h2>Tarefas</h2>
+    <table id="lista">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Status</th>
+                <th>Descrição</th>
+                <th>Data Início</th>
+                <th>Data Término</th>
+            </tr>
+        </thead>
+        <tbody id="tarefas-lista">
+        </tbody>
+    </table>
+
+    <script src="script_simples.js"></script>
+</body>
+</html>
