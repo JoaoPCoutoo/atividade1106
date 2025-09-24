@@ -6,7 +6,7 @@ $usuario = "root";
 // Define a senha para o usuário do banco de dados MySQL
 $senha = "";
 // Define o nome do banco de dados MySQL a ser utilizado
-$banco = "agenda_tarefas";
+$banco = "agenda_tarefa";
 
 // Cria uma nova conexão com o banco de dados MySQL usando a extensão mysqli
 $conexao = new mysqli($servidor, $usuario, $senha, $banco);
