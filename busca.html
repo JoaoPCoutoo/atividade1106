@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Tarefas - Agenda Simples</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="busca.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Busca de Tarefas</h1>
+            <nav>
+                <a href="index.html" class="nav-link">← Voltar para Cadastro</a>
+            </nav>
+        </header>
+
+        <div class="search-section">
+            <h2>Pesquisar Tarefas</h2>
+            <div class="search-container">
+                <input type="text" id="campo-busca" placeholder="Digite para buscar por título, descrição ou status..." autocomplete="off">
+                <div class="search-info">
+                    <span id="resultado-count">0 tarefas encontradas</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters-section">
+            <h3>Filtros Avançados</h3>
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label for="filtro-status">Status:</label>
+                    <select id="filtro-status">
+                        <option value="">Todos</option>
+                        <option value="aguardando">Aguardando</option>
+                        <option value="em execução">Em Execução</option>
+                        <option value="concluído">Concluído</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filtro-data-inicio">Data Início:</label>
+                    <input type="date" id="filtro-data-inicio">
+                </div>
+                <div class="filter-group">
+                    <label for="filtro-data-fim">Data Término:</label>
+                    <input type="date" id="filtro-data-fim">
+                </div>
+                <button id="limpar-filtros" class="btn-secondary">Limpar Filtros</button>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <span>Buscando...</span>
+            </div>
+            
+            <table id="tabela-resultados">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Status</th>
+                        <th>Descrição</th>
+                        <th>Data Início</th>
+                        <th>Data Término</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="resultados-lista">
+                </tbody>
+            </table>
+            
+            <div id="sem-resultados" class="no-results" style="display: none;">
+                <div class="no-results-icon">🔍</div>
+                <h3>Nenhuma tarefa encontrada</h3>
+                <p>Tente ajustar os termos de busca ou filtros</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para visualizar detalhes -->
+    <div id="modal-detalhes" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Detalhes da Tarefa</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="detail-item">
+                    <strong>ID:</strong> <span id="modal-id"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Título:</strong> <span id="modal-titulo"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Status:</strong> <span id="modal-status" class="status-badge"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Descrição:</strong> <span id="modal-descricao"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Data de Início:</strong> <span id="modal-data-inicio"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Data de Término:</strong> <span id="modal-data-termino"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="busca.js"></script>
+</body>
+</html>
